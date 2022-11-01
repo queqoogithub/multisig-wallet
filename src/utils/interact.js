@@ -5,13 +5,13 @@ require('dotenv').config();
 const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 //const web3 = createAlchemyWeb3(alchemyKey); // alchemy-web3 ไม่มี methods.Contract_Get_Function(args).call()
-const web3 = new Web3(Web3.givenProvider || 'https://ropsten.infura.io/v3/4695172c81c2421a87212d4e0980c680');
+const web3 = new Web3(Web3.givenProvider || 'https://opt-goerli.g.alchemy.com/v2/EjoPYXFuICaIg0Jcm0ZqtWW02uf004nk');
 
 const contractABI = require('../contract-abi.json')
 const contractAddress = "0xc9b9AD59585aeB502D1227dA496272582165Ec4B"; // owner is que address
 
 const multisigContractABI = require('../simple-multisig-wallet-contract-abi.json') // POC_MULTISIG_ADDRESS 
-const multisigContractAddress = "0xeACb83baA3E9426634EAD8fA93Cf922544866728"; // ["0xF54CfCf35A9A01AE30FCc5c58C13ef761db56d18", "0xdC147A1C62C2C83C8E2f6688706376269A346B02", "0xa0993817cdeaBC68B506b7972eB2BbA0D739A4aC"], 2
+const multisigContractAddress = "0x6BEd9dADdBb4B3F757E3bF7bbE733F540bFd0F62"; // ["0xF54CfCf35A9A01AE30FCc5c58C13ef761db56d18", "0xdC147A1C62C2C83C8E2f6688706376269A346B02", "0xa0993817cdeaBC68B506b7972eB2BbA0D739A4aC"], 2
 
 const sendTx = async (transactionParameters) => {
     try {
@@ -20,7 +20,7 @@ const sendTx = async (transactionParameters) => {
         await checkTx(txHash);
         return {
             success: true, 
-            status: "✅ Check out your transaction on Etherscan: https://kovan.etherscan.io/tx/" + txHash}
+            status: "✅ Check out your transaction on Etherscan: https://blockscout.com/optimism/goerli/tx/" + txHash}
     } catch (error) {
         return {
             success: false,

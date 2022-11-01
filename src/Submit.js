@@ -24,7 +24,7 @@ const Submit = (props) => {
 
     return (
         <div className="Minter">
-            <h1 id="title">BDEV Multisig Wallet</h1>
+            <h1 id="title">💰 BDEV Multisig Wallet</h1>
             <p>
                 Simply add token address, to, and amount, then press "Submit Tx"
             </p>
@@ -35,7 +35,7 @@ const Submit = (props) => {
                     placeholder="e.g. ERC20 Token"
                     onChange={(event) => { setToken(event.target.value) ; popBalance(event.target.value)}}
                 />
-                {tokenBalance? (<p id="status"> Balance: {tokenBalance} wie </p>): ""}
+                {tokenBalance? (<p id="status"> Balance: {tokenBalance} ethers </p>): ""}
                 <h2> To: </h2>
                 <input
                     type="text"
